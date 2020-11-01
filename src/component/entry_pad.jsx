@@ -7,7 +7,7 @@ import "../style/entry_pad.scss";
 const EntryPad = () => {
 
   return <div id="entry_pad" >
-    <Key/>
+    <Key value="1" type="number" />
   </div>
 }
 

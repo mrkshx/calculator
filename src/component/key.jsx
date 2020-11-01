@@ -2,10 +2,10 @@ import React from 'react';
 
 import "../style/key.scss";
 
-const Key = () => {
+const Key = (props) => {
 
   return <div className="key">
-    <p>1</p>
+    <p>{props.value}</p>
   </div>
 }
 
