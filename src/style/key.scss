@@ -1,0 +1,10 @@
+.key {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px;
+  &:active {
+    box-shadow: 1px 1px 1px
+  }
+}
