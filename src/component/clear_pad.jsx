@@ -2,6 +2,8 @@ import React from 'react';
 
 import Key from './key';
 
+import "../style/clear_pad.scss";
+
 
 const ClearPad = () => {
 
