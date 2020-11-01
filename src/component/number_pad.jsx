@@ -2,9 +2,11 @@ import React from 'react';
 
 import Key from './key';
 
+import "../style/number_pad.scss";
+
 const NumberPad = () => {
 
-  return <div id="clear_pad" >
+  return <div id="number_pad" >
     <Key value="7" type="number" />
     <Key value="8" type="number" />
     <Key value="9" type="number" />
