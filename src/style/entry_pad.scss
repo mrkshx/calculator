@@ -1,4 +1,6 @@
 #entry_pad {
+  display: flex;
+  flex-direction: column;
   border: 1px solid;
   border-radius: 10px;
   height: 380px;
