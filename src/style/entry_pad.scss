@@ -1,6 +1,7 @@
 #entry_pad {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   border: 1px solid;
   border-radius: 10px;
   height: 380px;
