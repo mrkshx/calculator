@@ -10,6 +10,9 @@ const Key = (props) => {
     if (props.value !== '=' && (props.type === 'number' || props.type === 'operator'))  {
       dispatch({ type: 'INPUT_KEYS', payload: props.value})
     }
+    else if (props.value === 'AC') {
+      dispatch({ type: 'RESET_DISPLAY', payload: 0})
+    }
   }
 
   const setKeyId = () => {
