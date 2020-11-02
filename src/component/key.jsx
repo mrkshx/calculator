@@ -7,7 +7,9 @@ const Key = (props) => {
   const [state, dispatch] = useContext(Context);
 
   const handleClick = () => {
-    dispatch({ type: 'INPUT_KEYS', payload: props.value})
+    if (props.value !== '=' && (props.type === 'number' || props.type === 'operator'))  {
+      dispatch({ type: 'INPUT_KEYS', payload: props.value})
+    }
   }
 
   const setKeyId = () => {
