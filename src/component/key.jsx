@@ -7,15 +7,26 @@ const Key = (props) => {
   const [state, dispatch] = useContext(Context);
 
   const handleClick = () => {
-    if (props.value !== '=' && (props.type === 'number' || props.type === 'operator'))  {
-      dispatch({ type: 'INPUT_KEYS', payload: props.value})
-    }
-    else if (props.value === 'AC') {
-      dispatch({ type: 'RESET_DISPLAY', payload: "0"})
-    }
-    else if (props.value === 'C') {
-      dispatch({ type: 'UNDO_LAST_INPUT' })
-    }
+
+    switch(props.type){
+      case 'number':
+        dispatch({ type: 'INPUT_KEYS', payload: props.value});
+        break;
+      case 'operator':
+        if (props.value !== '=') {
+          dispatch({ type: 'INPUT_KEYS', payload: props.value});
+        }
+        break;
+      case 'clear':
+        if (props.value === 'AC') {
+          dispatch({ type: 'RESET_DISPLAY', payload: "0"})
+        }
+        else if (props.value === 'C') {
+          dispatch({ type: 'UNDO_LAST_INPUT' })
+        }
+        break;
+      default: return "";
+    };
   }
 
   const setKeyId = () => {
