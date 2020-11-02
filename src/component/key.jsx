@@ -13,6 +13,9 @@ const Key = (props) => {
     else if (props.value === 'AC') {
       dispatch({ type: 'RESET_DISPLAY', payload: 0})
     }
+    else if (props.value === 'C') {
+      dispatch({ type: 'UNDO_LAST_INPUT' })
+    }
   }
 
   const setKeyId = () => {

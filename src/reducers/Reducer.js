@@ -9,7 +9,13 @@ const Reducer= (state, action) => {
     case 'RESET_DISPLAY':
       return{
         ...state,
-        output: "0"
+        output: action.payload
+      };
+    case 'UNDO_LAST_INPUT':
+      let newstate = state.output.slice(0, -1);
+      return{
+        ...state,
+        output: newstate
       };
     case 'CALCULATE':
       return{
