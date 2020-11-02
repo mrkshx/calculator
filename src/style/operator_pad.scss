@@ -1,4 +1,10 @@
 #operator_pad {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.operator_key {
+  margin: 10px 0;
 }
