@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {Context} from '../Store';
 
 import "../style/key.scss";
 
 const Key = (props) => {
+  const [state, dispatch] = useContext(Context);
+
+  const handleClick = () => {
+    dispatch({ type: 'INPUT_KEYS', payload: props.value})
+  }
 
   const setKeyId = () => {
     let result;
@@ -20,7 +26,9 @@ const Key = (props) => {
 
   return <div
     className={`key ${props.type}_key`}
-    id={setKeyId(props)}>
+    id={setKeyId(props)}
+    onClick={handleClick}
+    >
     <p>{props.value}</p>
   </div>
 }
