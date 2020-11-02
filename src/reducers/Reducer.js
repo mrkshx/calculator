@@ -4,7 +4,7 @@ const Reducer= (state, action) => {
     case 'INPUT_KEYS':
       return{
         ...state,
-        output: action.payload
+        output: state.output + action.payload
       };
     case 'RESET_DISPLAY':
       return{
