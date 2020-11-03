@@ -41,7 +41,7 @@ const Key = (props) => {
           expression.groups.num1 = Number(expression.groups.num1);
           expression.groups.num2 = Number(expression.groups.num2);
           console.log(expression);
-          dispatch({ type: 'CALCULATE', payload: calc(expression)});
+          dispatch({ type: 'CALCULATE', payload: calc(expression).toFixed(3)});
         }
         break;
       case 'clear':
