@@ -70,10 +70,31 @@ const Key = (props) => {
     return result;
   }
 
+  const setKeyColor = () => {
+    let key_backgroundcolor = "";
+    let key_color = "";
+    if (props.type === 'number') {
+      key_backgroundcolor = "white";
+    } else if ((props.type === 'operator') && (props.value !== '='))  {
+      key_backgroundcolor = "#DF8601";
+    } else if (props.type === 'operator') {
+      key_backgroundcolor = "black";
+      key_color = "white";
+    } else {
+      key_backgroundcolor = "red";
+    }
+    const Colors = {
+      backgroundColor: key_backgroundcolor,
+      color: key_color
+    }
+    return Colors;
+  }
+
   return <div
     className={`key ${props.type}_key`}
     id={setKeyId(props)}
     onClick={handleClick}
+    style={setKeyColor(props)}
     >
     <p>{props.value}</p>
   </div>
