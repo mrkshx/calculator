@@ -2,7 +2,8 @@ import React, {createContext, useReducer} from 'react';
 import Reducer from './reducers/Reducer';
 
 const initialState = {
-  output: "0"
+  output: "0",
+  firstInput: true
 }
 
 const Store = ({children}) =>{

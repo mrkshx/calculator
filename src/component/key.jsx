@@ -24,10 +24,16 @@ const Key = (props) => {
 
     switch(props.type){
       case 'number':
+        if (state.firstInput === true) {
+          dispatch({ type: 'REMOVE_LEADING_ZERO' });
+        }
         dispatch({ type: 'INPUT_KEYS', payload: props.value});
         break;
       case 'operator':
         if (props.value !== '=') {
+          if (state.firstInput === true) {
+            dispatch({ type: 'REMOVE_LEADING_ZERO' });
+          }
           dispatch({ type: 'INPUT_KEYS', payload: props.value});
         }
         else if (props.value === '=') {
