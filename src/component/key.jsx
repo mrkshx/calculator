@@ -37,11 +37,13 @@ const Key = (props) => {
           dispatch({ type: 'INPUT_KEYS', payload: props.value});
         }
         else if (props.value === '=') {
-          const expression = state.output.match(/^(?<num1>\d+\.?\d*)(?<operator>[+-x:]?)(?<num2>\d+\.?\d*)$/);
-          expression.groups.num1 = Number(expression.groups.num1);
-          expression.groups.num2 = Number(expression.groups.num2);
-          console.log(expression);
-          dispatch({ type: 'CALCULATE', payload: calc(expression).toFixed(3)});
+          const expression = state.output.match(/^(?<num1>\d*\.?\d*)(?<operator>[+-x:]?)(?<num2>\d*\.?\d*)$/);
+          if (expression.groups.operator.length !== 0) {
+            expression.groups.num1 = Number(expression.groups.num1);
+            expression.groups.num2 = Number(expression.groups.num2);
+            console.log(expression);
+            dispatch({ type: 'CALCULATE', payload: calc(expression).toFixed(3)});
+          }
         }
         break;
       case 'clear':
@@ -70,10 +72,31 @@ const Key = (props) => {
     return result;
   }
 
+  const setKeyColor = () => {
+    let key_backgroundcolor = "";
+    let key_color = "";
+    if (props.type === 'number') {
+      key_backgroundcolor = "white";
+    } else if ((props.type === 'operator') && (props.value !== '='))  {
+      key_backgroundcolor = "#DF8601";
+    } else if (props.type === 'operator') {
+      key_backgroundcolor = "black";
+      key_color = "white";
+    } else {
+      key_backgroundcolor = "red";
+    }
+    const Colors = {
+      backgroundColor: key_backgroundcolor,
+      color: key_color
+    }
+    return Colors;
+  }
+
   return <div
     className={`key ${props.type}_key`}
     id={setKeyId(props)}
     onClick={handleClick}
+    style={setKeyColor(props)}
     >
     <p>{props.value}</p>
   </div>
