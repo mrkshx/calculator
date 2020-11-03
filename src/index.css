@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Digital Numbers Regular';
+  src: local('Digital Numbers Regular'), url('./fonts/DigitalNumbers-Regular.woff') format('woff');
+}
