@@ -27,14 +27,18 @@ const Key = (props) => {
         if (state.firstInput === true) {
           dispatch({ type: 'REMOVE_LEADING_ZERO' });
         }
-        dispatch({ type: 'INPUT_KEYS', payload: props.value});
+        if (state.output.length <= 9) {
+          dispatch({ type: 'INPUT_KEYS', payload: props.value});
+        }
         break;
       case 'operator':
         if (props.value !== '=') {
           if (state.firstInput === true) {
             dispatch({ type: 'REMOVE_LEADING_ZERO' });
           }
-          dispatch({ type: 'INPUT_KEYS', payload: props.value});
+          if (state.output.length <= 9) {
+            dispatch({ type: 'INPUT_KEYS', payload: props.value});
+          }
         }
         else if (props.value === '=') {
           let result = 0;
