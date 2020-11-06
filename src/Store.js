@@ -3,7 +3,8 @@ import Reducer from './reducers/Reducer';
 
 const initialState = {
   output: "0",
-  firstInput: true
+  firstInput: true,
+  isCalculation: false
 }
 
 const Store = ({children}) =>{
