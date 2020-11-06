@@ -16,7 +16,9 @@ const Reducer= (state, action) => {
       return{
         ...state,
         equation: action.payload,
-        firstInput: true
+        calculation: "",
+        firstInput: true,
+        isCalculation: false
       };
     case 'UNDO_LAST_INPUT':
       let newstate = state.output.slice(0, -1);
@@ -27,7 +29,8 @@ const Reducer= (state, action) => {
     case 'CALCULATE':
       return{
         ...state,
-        calculation: action.payload
+        calculation: action.payload,
+        isCalculation: true
       };
     default: return state;
   };
