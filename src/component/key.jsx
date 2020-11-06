@@ -37,7 +37,7 @@ const Key = (props) => {
           dispatch({ type: 'INPUT_KEYS', payload: props.value});
         }
         else if (props.value === '=') {
-          const expression = state.output.match(/^(?<num1>\d*\.?\d*)(?<operator>[+-x:]?)(?<num2>\d*\.?\d*)$/);
+          const expression = state.output.match(/^(?<num1>[+-]?\d*\.?\d*)(?<operator>[+-x:]?)(?<num2>[+-]?\d*\.?\d*)$/);
           if (expression.groups.operator.length !== 0) {
             expression.groups.num1 = Number(expression.groups.num1);
             expression.groups.num2 = Number(expression.groups.num2);
