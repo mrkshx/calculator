@@ -37,12 +37,20 @@ const Key = (props) => {
           dispatch({ type: 'INPUT_KEYS', payload: props.value});
         }
         else if (props.value === '=') {
+          let result = 0;
           const expression = state.output.match(/^(?<num1>[+-]?\d*\.?\d*)(?<operator>[+-x:]?)(?<num2>[+-]?\d*\.?\d*)$/);
           if (expression.groups.operator.length !== 0) {
             expression.groups.num1 = Number(expression.groups.num1);
             expression.groups.num2 = Number(expression.groups.num2);
+            result = calc(expression);
+            if (Number.isInteger(result)) {
+              result = result.toFixed(0);
+            } else {
+              result = result.toFixed(3);
+              result = parseFloat(result);
+            }
             console.log(expression);
-            dispatch({ type: 'CALCULATE', payload: calc(expression).toFixed(3)});
+            dispatch({ type: 'CALCULATE', payload: result});
           }
         }
         break;
