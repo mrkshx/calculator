@@ -43,18 +43,21 @@ const Key = (props) => {
         else if (props.value === '=') {
           let result = 0;
           const expression = state.equation.match(/^(?<num1>[+-]?\d*\.?\d*)(?<operator>[+-x:]?)(?<num2>[+-]?\d*\.?\d*)$/);
-          if (expression.groups.operator.length !== 0) {
-            expression.groups.num1 = Number(expression.groups.num1);
-            expression.groups.num2 = Number(expression.groups.num2);
-            result = calc(expression);
-            if (Number.isInteger(result)) {
-              result = result.toFixed(0);
-            } else {
-              result = result.toFixed(3);
-              result = parseFloat(result);
+          if (expression !== null) {
+            if (expression.groups.operator.length !== 0) {
+              expression.groups.num1 = Number(expression.groups.num1);
+              expression.groups.num2 = Number(expression.groups.num2);
+              result = calc(expression);
+              if (Number.isInteger(result)) {
+                result = result.toFixed(0);
+              } else {
+                result = result.toFixed(3);
+                result = parseFloat(result);
+              }
+              dispatch({ type: 'CALCULATE', payload: result});
             }
-            console.log(expression);
-            dispatch({ type: 'CALCULATE', payload: result});
+          } else {
+            dispatch({ type: 'CALCULATE', payload: "ERR"});
           }
         }
         break;
