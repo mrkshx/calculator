@@ -4,13 +4,13 @@ const Reducer= (state, action) => {
     case 'INPUT_KEYS':
       return{
         ...state,
-        equation: state.output + action.payload,
+        equation: state.equation + action.payload,
         firstInput: false
       };
     case 'REMOVE_LEADING_ZERO':
       return{
         ...state,
-        equation: state.output.substring(1),
+        equation: state.equation.substring(1),
       };
     case 'RESET_DISPLAY':
       return{
