@@ -21,10 +21,16 @@ const Reducer= (state, action) => {
         isCalculation: false
       };
     case 'UNDO_LAST_INPUT':
-      let newstate = state.output.slice(0, -1);
+      if (state.isCalculation) {
+        return {
+          ...state,
+          isCalculation: false
+        }
+      }
+      let newstate = state.equation.slice(0, -1);
       return{
         ...state,
-        output: newstate
+        equation: newstate
       };
     case 'CALCULATE':
       return{
