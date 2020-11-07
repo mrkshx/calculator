@@ -1,10 +1,10 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {Context} from '../Store';
 
 import '../style/display.scss';
 
 const Display = () => {
-  const [state, dispatch] = useContext(Context);
+  const [state] = useContext(Context);
 
   const showOutput = () => {
     return (state.isCalculation ? state.calculation : state.equation);
