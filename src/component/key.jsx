@@ -27,7 +27,7 @@ const Key = (props) => {
         if (state.firstInput === true) {
           dispatch({ type: 'REMOVE_LEADING_ZERO' });
         }
-        if (state.output.length <= 9) {
+        if (state.equation.length <= 9) {
           dispatch({ type: 'INPUT_KEYS', payload: props.value});
         }
         break;
@@ -36,13 +36,13 @@ const Key = (props) => {
           if (state.firstInput === true) {
             dispatch({ type: 'REMOVE_LEADING_ZERO' });
           }
-          if (state.output.length <= 9) {
+          if (state.equation.length <= 9) {
             dispatch({ type: 'INPUT_KEYS', payload: props.value});
           }
         }
         else if (props.value === '=') {
           let result = 0;
-          const expression = state.output.match(/^(?<num1>[+-]?\d*\.?\d*)(?<operator>[+-x:]?)(?<num2>[+-]?\d*\.?\d*)$/);
+          const expression = state.equation.match(/^(?<num1>[+-]?\d*\.?\d*)(?<operator>[+-x:]?)(?<num2>[+-]?\d*\.?\d*)$/);
           if (expression.groups.operator.length !== 0) {
             expression.groups.num1 = Number(expression.groups.num1);
             expression.groups.num2 = Number(expression.groups.num2);

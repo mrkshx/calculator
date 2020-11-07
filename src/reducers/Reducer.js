@@ -4,30 +4,39 @@ const Reducer= (state, action) => {
     case 'INPUT_KEYS':
       return{
         ...state,
-        output: state.output + action.payload,
+        equation: state.equation + action.payload,
         firstInput: false
       };
     case 'REMOVE_LEADING_ZERO':
       return{
         ...state,
-        output: state.output.substring(1),
+        equation: state.equation.substring(1),
       };
     case 'RESET_DISPLAY':
       return{
         ...state,
-        output: action.payload,
-        firstInput: true
+        equation: action.payload,
+        calculation: "",
+        firstInput: true,
+        isCalculation: false
       };
     case 'UNDO_LAST_INPUT':
-      let newstate = state.output.slice(0, -1);
+      if (state.isCalculation) {
+        return {
+          ...state,
+          isCalculation: false
+        }
+      }
+      let newstate = state.equation.slice(0, -1);
       return{
         ...state,
-        output: newstate
+        equation: newstate
       };
     case 'CALCULATE':
       return{
         ...state,
-        output: action.payload
+        calculation: action.payload,
+        isCalculation: true
       };
     default: return state;
   };

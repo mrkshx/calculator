@@ -2,8 +2,10 @@ import React, {createContext, useReducer} from 'react';
 import Reducer from './reducers/Reducer';
 
 const initialState = {
-  output: "0",
-  firstInput: true
+  equation: "0",
+  calculation: "",
+  firstInput: true,
+  isCalculation: false
 }
 
 const Store = ({children}) =>{
