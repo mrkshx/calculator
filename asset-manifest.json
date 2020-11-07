@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b019c422.chunk.css",
+    "main.js": "/static/js/main.eef1b103.chunk.js",
+    "main.js.map": "/static/js/main.eef1b103.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8800e39d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8800e39d.js.map",
+    "static/js/2.7aa8e347.chunk.js": "/static/js/2.7aa8e347.chunk.js",
+    "static/js/2.7aa8e347.chunk.js.map": "/static/js/2.7aa8e347.chunk.js.map",
+    "static/js/3.a6dff8e7.chunk.js": "/static/js/3.a6dff8e7.chunk.js",
+    "static/js/3.a6dff8e7.chunk.js.map": "/static/js/3.a6dff8e7.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.b019c422.chunk.css.map": "/static/css/main.b019c422.chunk.css.map",
+    "static/js/2.7aa8e347.chunk.js.LICENSE.txt": "/static/js/2.7aa8e347.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/DigitalNumbers-Regular.a1fd4994.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8800e39d.js",
+    "static/js/2.7aa8e347.chunk.js",
+    "static/css/main.b019c422.chunk.css",
+    "static/js/main.eef1b103.chunk.js"
+  ]
+}
